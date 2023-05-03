@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <iostream>
 #define MAX_STACK 10
-typedef int DATA;
+typedef double DATA;
 
-typedef struct{
+typedef struct _Stack{
     DATA items[MAX_STACK];
     int top = -1;
 }Stack;
 
-void InitStack(Stack* pstack) {
+void InitStack(Stack* pstack, int len) {
     pstack->top = -1;
 }
 
@@ -28,7 +28,7 @@ void Push(Stack* pstack, DATA item) {
     }
     else {
         pstack->top++;
-        pstack->items[pstack->top] = item; //pstack->items[++(pstack->top)] = item;À¸·Îµµ ¾µ ¼ö ÀÖÀ½
+        pstack->items[pstack->top] = item; //pstack->items[++(pstack->top)] = item;ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 }
 void Pop(Stack* pstack) {
@@ -36,6 +36,6 @@ void Pop(Stack* pstack) {
         exit(1);
     }
     else {
-        pstack->top--; //--(pstack->top);À¸·Îµµ ¾µ ¼ö ÀÖÀ½
+        pstack->top--; //--(pstack->top);ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 }
