@@ -1,4 +1,8 @@
-#inlcude <stdio.h>
+#include <stdio.h>
+#define MAX_QUEUE 5
+
+typedef enum{true, false} bool;
+typedef int Data;
 
 typedef struct {
     int rear;
