@@ -1,6 +1,5 @@
-#include <stdio.h>
-#inlcude "Queue.h"
-#define MAX_QUEUE 10
+#include "Queue.h"
+#include "Stack.h"
 typedef int BData;
 
 
@@ -22,7 +21,7 @@ void Inorder(BTreeNode* root){
 }
 
 //Preorder
-void Preorder(BTreenode* root){
+void Preorder(BTreeNode* root){
     if(root != NULL){
         printf("%d ", root->item); 
         Preorder(root->left_child); 
@@ -54,6 +53,21 @@ void LevelOrder(BTreeNode* root){
         if(root->right_child != NULL) EnQueue(&queue, root->right_child);
     }
 }
+
+
+//Use Postorder Traversal
+int CalDirectorySize(BTreeNode* root){
+    int left_size, right_size;
+    if(root == NULL) return 0;
+    else{
+        left_size = CalDirectorySize(root->left_child);
+        right_size = CalDirectorySize(root->right_child);
+        return (root->item + left_size + right_size);
+    }
+    
+}
+
+
 
 
 
