@@ -24,7 +24,7 @@ bool IsEmpty(LinkedList* plist){
 }
 
 void InsertMiddle(LinkedList* plist,int pos, Data item){
-    Node* cur = plist->head->next;
+    Node* cur = plist->head;
     Node* newnode = (Node*)malloc(sizeof(Node));
     for(int i = 0; i < pos; i++){
         cur = cur->next;
@@ -40,6 +40,7 @@ void RemoveItem(LinkedList* plist, int pos){
     if(IsEmpty(plist) || pos < 0 || pos >= plist->len){
         exit(1);
     }
+    cur = plist->head;
     for(int i = 0;i < pos; i++){
         cur = cur->next;
     }
@@ -50,7 +51,7 @@ void RemoveItem(LinkedList* plist, int pos){
 }
 
 Data ReadItem(LinkedList* plist, int pos){
-    Node* cur = plist->head->next;
+    Node* cur = plist->head;
     for(int i = 0; i < pos; i++){
         cur = cur->next;
     }
