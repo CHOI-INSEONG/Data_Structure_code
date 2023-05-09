@@ -2,9 +2,6 @@
 #include "Stack.h"
 typedef int BData;
 
-
-
-
 typedef struct _bTreeNode{
     BData item;
     struct _bTreeNode* left_child;
@@ -64,13 +61,5 @@ int CalDirectorySize(BTreeNode* root){
         right_size = CalDirectorySize(root->right_child);
         return (root->item + left_size + right_size);
     }
-    
-}
-
-
-
-
-
-int main(){
     
 }
