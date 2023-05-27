@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include Te
 
 typedef int Key;
 typedef struct _BSTNode{
@@ -48,10 +49,91 @@ BSTNode* Search(BSTNode* root, Key key){
     }
 }
 
+//BST Inserting (Recursive Ver.)
+void Insert(BSTNode* root, Key key){
+    if(root->key == key) exit(1);
+    else if(root->key > key){
+        if(root->left_child == NULL){
+            CreateLeftSubTree(root, key);
+        }
+        else{
+            Insert(root->left_child, key);
+        }
+    }
+    else{
+        if(root->right_child == NULL){
+            CreateRightSubtree(root, key);
+        }
+        else{
+            Insert(root->right_child, key);
+        }
+    }
+}
 
+//BST Inserting (Iterative Ver.)
+void Insert(BSTNode* root, Key key){
+    BSTNode* cur = root;
+    while(cur != NULL){
+        if(cur->key == key) exit(1);
+        else if(cur-> key > key){
+            if(cur-.left_child == NULL){
+                CreateLeftSubtree(cur, key);
+                break;
+            }
+            else{
+                cur = cur->left_child
+            }
+        }
+        else{
+            if(cur->right_child == NULL){
+                CreateRightSubtree(cur, key);
+                break;
+            }
+            else{
+                cur = cur->right_child;
+            }
+        }
+    }
+    
+}
 
+//BST Removing (Recursive Ver.)
+BSTNode* remove(BSTNode* root, Key key){
+    if(root == NULL) return NULL;
 
-
+    if(key < root->key){
+        root->left_child = remove(root->left_child, key);
+    }
+    else if(key > root->key){
+        root->right_child = remove(root->right_child, key);
+    }
+    else{
+        BSTNode* cur = root;
+        if(root->left_child == NULL && root->right_child == NULL){
+            DestroyNode(cur);
+            root = NULL;
+        }
+        else if(root->left_child == NULL || root->right_child == NULL){
+            if(root->left_child != NULL){
+                root = root->left_child;
+                DestroyNode(cur);
+            }
+            else{
+                root = root->right_child;
+                DestroyNode(cur);
+            }
+        }
+        else{
+            cur = cur->right_child;
+            while(cur->left_child != NULL){
+                cur = cur->left_child;
+            }
+            root->key = cur->key;
+            root->right_child = remove(root->right_child, cur->key);
+        } 
+    }
+    return root;
+}
 
 
 
