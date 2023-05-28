@@ -46,3 +46,7 @@ BSTNode* Insert(BSTNode* root, Key key){
         exit(1);
     }
 }
+
+BSTNode* LLrotation(BSTNode* parent){
+    BSTNode* child = parent->left_child;
+}
