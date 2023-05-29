@@ -135,9 +135,72 @@ BSTNode* remove(BSTNode* root, Key key){
     return root;
 }
 
+//BST Removing(Iterative Ver.)
+BSTNode* Remove(BSTNode* root, Key key){
+    BSTNode* cur = root, *parent = NULL;
 
+    while(cur != NULL && cur->key != key){
+        parent = cur;
+        if(cur->key > key){
+            cur =  cur->left_child;
+        }
+        else{
+            cur = cur->right_child;
+        }
+    }
+    if(cur == NULL) exit(1);
+    if(cur->left_child == NULL && cur->right_child == NULL){
+        if(parent != NULL){
+            if(parent->left_child == cur){
+                parent->left_child = NULL;
+            }
+            else{
+                parent->right_child = NULL;
+            }
+        }
+          else{
+        root = NULL;
+        }
+    }
+    else if(cur->left_child == NULL || cur->right_child == NULL){
+        BSTNode* child;
 
-
+        if(cur->left_child != NULL){
+            child = cur->left_child;
+        }
+        else{
+            child = cur->right_child;
+        }
+        if(parent != NULL){
+            if(parent->left_child == NULL){
+                parent->left_child = child;
+            }
+            else{
+                parent->right_child = child;
+            }
+            else{
+                root = child;
+            }
+        }
+        else{
+            BSTNode* succ_parent = cur, *succ = cur->right_child;
+            while(succ->left_child != NULL){
+                succ_parent = succ;
+                succ = succ->left_child;
+            }
+            if(succ_parent->right_child == succ){
+                succ_parent->right_child = succ->right_child;
+            }
+            else{
+                succ_parent->left_child = succ->right_child;
+            }
+            cur->key = succ->key;
+            cur = succ;
+        }
+        DestroyNode(cur);
+        return root;
+    }
+}
 
 
 
