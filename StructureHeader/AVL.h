@@ -49,4 +49,72 @@ BSTNode* Insert(BSTNode* root, Key key){
 
 BSTNode* LLrotation(BSTNode* parent){
     BSTNode* child = parent->left_child;
+    parent->left_child = child->right_child;
+    child->right_child = parent;
+    return child;
 }
+
+BSTNode* RRrotation(BSTNode* parent){
+    BSTNode* child = parent->right_child;
+    parent->right_child = child->left_child;
+    child->left_child = parent;
+    return child;
+}
+
+BSTNode* LRrotaiton(BSTNode* parent){
+    BSTNode* child = parent->left_child;
+    parent->left_child = RRrotation(child);
+    return LLrotation(parent);
+}
+
+BSTNode* RLrotation(BSTNode* parent){
+    BSTNode* child = parent->right_child;
+    parent->right_child = LLrotation(child);
+    return RRrotation(parent);
+}
+
+BSTNode* Remove(BSTNode* root, Key key){
+    if(key < root->key){
+        root->left_child = Remove(root->left_child, key);
+    }
+    else if(key > root->key){
+        root->right_child = Remove(root->right_child, key);
+    }
+    else{
+        if(root->left_child == NULL && root->right_child == NULL){
+
+        }
+        else if(root->left_child == NULL || root->right_child == NULL){
+
+        }
+        else{
+            root->right_child = Remove(root->right_child, cur->key)
+        }
+    }
+    return root;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
