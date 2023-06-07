@@ -22,7 +22,7 @@ bool IsEmpty(Queue* queue) {
     return queue->front == queue->rear;
 }
 
-Data peek(Queue* queue) {
+Data QPeek(Queue* queue) {
     if (IsEmpty(queue)) {
         exit(1);
     }

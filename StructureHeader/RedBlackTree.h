@@ -10,3 +10,4 @@ typedef struct _RBNode{
     struct _BSTNode* left_child;
     struct _BSTNode* right_child;
 }RBNode;
+

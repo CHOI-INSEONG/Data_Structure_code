@@ -19,7 +19,7 @@ bool IsFull(Stack* pstack) {
 bool IsEmpty(Stack* pstack) {
     return pstack->top == -1;
 }
-DATA Peek(Stack* pstack) {
+DATA SPeek(Stack* pstack) {
     return pstack->items[pstack->top];
 }
 void Push(Stack* pstack, DATA item) {
