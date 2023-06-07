@@ -90,7 +90,7 @@ void DFS(Graph* pgraph){
             visited[vtx] = true;
             printf("%d ", vtx);
         }
-
+        
         cur = pgraph->heads[vtx]->next;
         while (cur != NULL){
             if(!visited[cur->id]){
@@ -101,7 +101,34 @@ void DFS(Graph* pgraph){
     }
 }
 
+void BFS(Graph* pgraph){
+    Queue queue;
+    bool* visited = (bool *)malloc(sizeof(bool) * pgraph->num);
+    for (int i = 0; i < pgraph->num; i++){
+        visited[i] = false;
+    }
 
+    InitQueue(&queue);
+    EnQueue(&queue, 0);
+    while (!IsEmpty(&queue)){
+        GNode* cur;
+        int vtx = QPeek(&queue);
+        DeQueue(&queue);
+    
+        if(visited[vtx]) continue;
+        else{
+            visited[vtx] = true;
+            printf("%d ", vtx);
+        }
+        cur = pgraph->heads[vrx]->next;
+        while(cur != NULL){
+            if(!visited[cur->id]){
+                EnQueue(&queue, cur->id);
+            }
+            cur = cur->next;
+        }
+    }
+}
 
 
 
