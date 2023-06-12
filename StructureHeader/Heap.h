@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Queue.h"
 #define MAX_HEAP 100
 
 typedef char Data;
@@ -98,7 +97,17 @@ int GetHighPriorityChild(Heap* pheap, int idx){
     }
 }
 
+int Getparent(int idx){
+    return idx / 2;
+}
 
+int GetLChild(int idx){
+    return idx * 2;
+}
+
+int GetRChild(int idx){
+    return idx * 2 + 1;
+}
 
 
 
