@@ -1,6 +1,6 @@
-2023-1 자료구조 코드 보관
+# 2023-1 자료구조 코드 보관
 
-2023-1 DataStructure (T03203302) Code Storage
+# 2023-1 DataStructure (T03203302) Code Storage
 
 1: Review of C Programming 
 
