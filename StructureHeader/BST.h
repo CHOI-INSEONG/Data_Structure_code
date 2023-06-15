@@ -37,7 +37,7 @@ BSTNode* Search(BSTNode* root, Key key){
 //BST Search (Iterative Ver.)
 BSTNode* Search(BSTNode* root, Key key){
     BSTNode* cur = root;
-    whiel(cur != NULL){
+    while(cur != NULL){
         if(cur->key == key) break;
         else if(cur->key > key){
             cur = cur->left_child;
