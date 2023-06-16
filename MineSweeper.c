@@ -20,7 +20,7 @@ void travel(int col, int row) {
 		if (visited[col - 1][row] == false) {// 한 칸 왼쪽으로 이동 
 			travel(col - 1, row);
 		}
-		if (visited[col][row - 1]) {// 한 칸 밑으로 이동
+		if (visited[col][row - 1]) {// 한 칸 위로 이동
 			travel(col, row - 1);
 		}
 
